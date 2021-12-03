@@ -1,5 +1,6 @@
 import numpy as np
 import random
+from scipy.integrate import simpson
 from math import factorial
 
 def MM1_sojourn_time(λ, μ):
@@ -66,17 +67,17 @@ def MMn_mean_waiting_time(λ, μ, n):
     T_Q = L_Q / λ
     return T_Q
 
-def MH1_soujorn_time(λ, μs, ps):
+def MH1_sojourn_time(λ, μs, ps):
     μ_inv = np.sum(ps/μs)
     μ = 1/μ_inv
-    ρ = λ*μ_inv
+    ρ = λ/μ
     var = 2*np.sum(ps/np.power(μs, 2)) - μ_inv**2 
     L = ρ + (ρ**2 * (1 + var * μ**2))/(2*(1 - ρ))
     return L/λ
 
 def MH1_waiting_time(λ, μs, ps):
     μ_inv = np.sum(ps/μs)
-    return MM1_sojourn_time(λ, μs, ps) - μ_inv
+    return MH1_sojourn_time(λ, μs, ps) - μ_inv
 
 def MD1_soujorn_time(λ, μ):
     ρ = λ/μ
@@ -85,3 +86,14 @@ def MD1_soujorn_time(λ, μ):
 
 def MD1_waiting_time(λ, μ):
     return MD1_soujorn_time(λ, μ) - 1/μ
+
+
+def _MM1_sptf_waiting_time_integrand(ρ, x):
+    return ρ * np.exp(-x) / np.power((1 - ρ * (1 - np.exp(-x) - x *np.exp(-x))))
+
+def MM1_sptf_waiting_time(ρ):
+    g = lambda x: ρ * np.sin(x) / np.power(1 - ρ * (1 - np.cos(x) + np.log(np.cos(x)) * np.cos(x)),2)
+    x = np.linspace(0, np.pi/2, 10**5)
+    y = g(x)
+    integral = simpson(y, x)
+    return integral
