@@ -21,7 +21,7 @@ def hyperexp_factory(λ_values, ps, seed = None):
     def _hyperexp():
         psum = 0
         rand_n = random.uniform(0,1)
-        for i, p in enumerate(p_values):
+        for i, p in enumerate(ps):
             psum += p
             if rand_n < psum:
                 return exp_distributions[i]()
