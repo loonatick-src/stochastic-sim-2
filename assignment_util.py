@@ -63,7 +63,7 @@ def sample_mean_variance(data):
 def hyperexp_mean_var(λs, ps):
     ps = np.array(ps)
     λs = np.array(λs)
-    mean = ps / λs
+    mean = np.sum(ps / λs)
     expval_xsq = 2*np.sum(ps/ np.power(λs,2))
     var = expval_xsq - np.power(mean, 2)
     return mean, var
