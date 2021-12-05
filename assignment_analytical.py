@@ -26,7 +26,7 @@ def MMn_utilization(λ, μ, n):
 def MMn_p0(λ, μ, n):
     ρ = MMn_utilization(λ, μ, n)
     assert 0 < ρ < 1, "ρ not in (0,1)"
-    series_term = λa k: np.power(n*ρ, k) / factorial(k)
+    series_term = lambda k: np.power(n*ρ, k) / factorial(k)
     sequence = np.array([series_term(k) for k in range(n)])
     series_sum = np.sum(sequence)
     
