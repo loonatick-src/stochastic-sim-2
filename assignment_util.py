@@ -32,9 +32,9 @@ def hyperexp():
     rand_n = random.randint(0,4)
 
     if rand_n == 0:
-        return random.expovariate(5.0)
+        return random.expovariate(5.0/2.0)
     else:
-        return random.expovariate(1.0)
+        return random.expovariate(1.0/2.0)
 
 
 def deterministic_factory(mean):
