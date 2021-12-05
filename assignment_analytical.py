@@ -26,7 +26,7 @@ def MMn_utilization(λ, μ, n):
 def MMn_p0(λ, μ, n):
     ρ = MMn_utilization(λ, μ, n)
     assert 0 < ρ < 1, "ρ not in (0,1)"
-    series_term = lambda k: np.power(n*ρ, k) / factorial(k)
+    series_term = λa k: np.power(n*ρ, k) / factorial(k)
     sequence = np.array([series_term(k) for k in range(n)])
     series_sum = np.sum(sequence)
     
@@ -97,3 +97,32 @@ def MM1_sptf_waiting_time(ρ):
     y = g(x)
     integral = simpson(y, x)
     return integral
+
+def MG1_utilization(λ, μ):
+    return λ / μ
+
+def MG1_mean_system_size(λ, μ, σ):
+    """
+    IID service times with mean μ, variance σ**2
+    """
+    ρ = MG1_utilization(λ, μ)
+    σsq = σ * σ
+    μsq = μ * μ
+    N = ρ + np.power(ρ, 2) * (1 + μsq * σsq) / (2*(1 - ρ)) 
+    return N
+
+def MG1_mean_queue_length(λ, μ, σ):
+    ρ = MG1_utilization(λ, μ)
+    N = MG1_mean_system_size(λ, μ, σ)
+    N_q = N - ρ
+    return N_q
+
+def MG1_mean_sojourn_time(λ, μ, σ):
+    N = MG1_mean_system_size(λ, μ, σ)
+    T = N / λ
+    return T
+
+def MG1_mean_waiting_time(λ, μ, σ):
+    N_q = MG1_mean_queue_length(λ, μ, σ)
+    T_q = N_q / λ
+    return T_q
