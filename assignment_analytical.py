@@ -3,6 +3,11 @@ import random
 from scipy.integrate import simpson
 from math import factorial
 
+def exponential_mean_variance(λ):
+    mean = 1/λ
+    var = mean*mean
+    return mean, var
+
 def MM1_sojourn_time(λ, μ):
     return 1.0 / (μ - λ)
 
