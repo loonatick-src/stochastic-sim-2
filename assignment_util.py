@@ -59,3 +59,11 @@ def sample_mean_variance(data):
     smean = np.mean(data)
     svar = np.sum(np.power(data - smean, 2)) / (n-1)
     return smean, svar
+
+def hyperexp_mean_var(λs, ps):
+    ps = np.array(ps)
+    λs = np.array(λs)
+    mean = ps / λs
+    expval_xsq = 2*np.sum(ps/ np.power(λs,2))
+    var = expval_xsq - np.power(mean, 2)
+    return mean, var
