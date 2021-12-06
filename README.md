@@ -1,4 +1,4 @@
-# Stochastic Simulation
+#Stochastic Simulation
 ## Assignment 2 - Discrete Event Simulation and Queueing Theory
 
 
@@ -24,6 +24,6 @@ of theoretical results and verification of discrete event simulations.
 + `assignment_util.py`: utility functions, PRNG functions etc
 + `assignment_queue.py`: discrete event simulation objects; this is where all the simpy code is
 
-####Notebooks
+#### Notebooks
 + `analytical.ipynb`: plots of theoretical waiting times
 + `statistical.ipynb`: discrete event simulations, statistical tests, and plots
