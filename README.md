@@ -1,5 +1,5 @@
 # Stochastic Simulation
-## Assignment 2 - Queueing Systems
+## Assignment 2 - Discrete Event Simulation and Queueing Theory
 
 
 ### Authors
@@ -17,5 +17,9 @@ Tested with the following, will most likely work well with other versions.
 + simpy 4.0.1
 
 ### Files
+Python Scripts
++ `assignment_analytical.py`: functions for analytical values of performance measures; used for visualization
+of theoretical results and verification of discrete event simulations.
++ `assignment_util.py`: 
 Notebooks
-TODO
++ `analytical.ipynb`: 
