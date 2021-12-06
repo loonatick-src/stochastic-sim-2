@@ -1,10 +1,3 @@
-"""
-Utility functions
-- exp_factory
-- hyperexp_factory
-- deterministic_factory
-- rolling_average
-"""
 import random
 import numpy as np
 
@@ -27,14 +20,6 @@ def hyperexp_factory(λ_values, ps, seed = None):
                 return exp_distributions[i]()
 
     return _hyperexp
-
-def hyperexp():
-    rand_n = random.randint(0,4)
-
-    if rand_n == 0:
-        return random.expovariate(5.0/2.0)
-    else:
-        return random.expovariate(1.0/2.0)
 
 
 def deterministic_factory(mean):
