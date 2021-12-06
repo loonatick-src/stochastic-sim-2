@@ -17,9 +17,13 @@ Tested with the following, will most likely work well with other versions.
 + simpy 4.0.1
 
 ### Files
-Python Scripts
+#### Python Scripts
+Not meant to be executed as main - imported in the notebooks.
 + `assignment_analytical.py`: functions for analytical values of performance measures; used for visualization
 of theoretical results and verification of discrete event simulations.
-+ `assignment_util.py`: 
-Notebooks
-+ `analytical.ipynb`: 
++ `assignment_util.py`: utility functions, PRNG functions etc
++ `assignment_queue.py`: discrete event simulation objects; this is where all the simpy code is
+
+####Notebooks
++ `analytical.ipynb`: plots of theoretical waiting times
++ `statistical.ipynb`: discrete event simulations, statistical tests, and plots
